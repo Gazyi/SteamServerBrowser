@@ -146,12 +146,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Games\CounterStrikeGO.cs" />
+    <Compile Include="Games\Left4Dead.cs" />
     <Compile Include="Games\QuakeLiveOptionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Games\QuakeLiveOptionsDialog.Designer.cs">
       <DependentUpon>QuakeLiveOptionsDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Games\TeamFortress2.cs" />
     <Compile Include="Games\ToxikkOptionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>

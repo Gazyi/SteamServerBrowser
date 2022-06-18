@@ -20,11 +20,16 @@ namespace ServerBrowser
     public string MasterServer { get; set; }
     public int InitialGameID { get; set; }
     public string FilterMod { get; set; }
+    public string BlockedIPs { get; set; }
     public string FilterMap { get; set; }
+    public string MapsExcludeServer { get; set; }
     public string TagsIncludeServer { get; set; }
     public string TagsExcludeServer { get; set; }
+    public string NamesIncludeServer { get; set; }
+    public string NamesExcludeServer { get; set; }
     public bool GetEmptyServers { get; set; }
     public bool GetFullServers { get; set; }
+    public bool GetOfficialServers { get; set; }
     public int MasterServerQueryLimit { get; set; }
 
     public int MinPlayers { get; set; }
@@ -46,6 +51,7 @@ namespace ServerBrowser
     {
       this.GetEmptyServers = true;
       this.GetFullServers = true;
+      this.GetOfficialServers = true;
       this.MasterServerQueryLimit = 1000;
     }
 
@@ -69,11 +75,16 @@ namespace ServerBrowser
       this.MasterServer = opt.MasterServer;
       this.InitialGameID = opt.InitialGameID;
       this.FilterMod = opt.FilterMod;
+      this.BlockedIPs = opt.BlockedIPs;
       this.FilterMap = opt.FilterMap;
+      this.MapsExcludeServer = opt.MapsExcludeServer;
       this.TagsIncludeServer = opt.TagsIncludeServer;
       this.TagsExcludeServer = opt.TagsExcludeServer;
+      this.NamesIncludeServer = opt.NamesIncludeServer;
+      this.NamesExcludeServer = opt.NamesExcludeServer;
       this.GetEmptyServers = opt.GetEmptyServers;
       this.GetFullServers = opt.GetFullServers;
+      this.GetOfficialServers = opt.GetOfficialServers;
       this.MasterServerQueryLimit = opt.MasterServerQueryLimit;
 
       this.Source = opt.Source;
@@ -102,12 +113,17 @@ namespace ServerBrowser
       this.MasterServer = (ignoreMasterServer ? null : ini.GetString("MasterServer")) ?? "";
       this.InitialGameID = ini.GetInt("InitialGameID");
       this.FilterMod = ini.GetString("FilterMod");
+      this.BlockedIPs = ini.GetString("BlockedIPs");
       this.FilterMap = ini.GetString("FilterMap");
+      this.MapsExcludeServer = ini.GetString("ExcludeMaps");
       this.TagsIncludeServer = ini.GetString("TagsInclude");
       this.TagsExcludeServer = ini.GetString("TagsExclude");
+      this.NamesIncludeServer = ini.GetString("NamesInclude");
+      this.NamesExcludeServer = ini.GetString("NamesExclude");
       this.VersionMatch = ini.GetString("VersionMatch");
       this.GetEmptyServers = ini.GetBool("GetEmptyServers", true);
       this.GetFullServers = ini.GetBool("GetFullServers", true);
+      this.GetOfficialServers = ini.GetBool("GetOfficialServers", true);
       this.MasterServerQueryLimit = ini.GetInt("MasterServerQueryLimit", this.MasterServerQueryLimit);
       this.GridFilter = ini.GetString("GridFilter");
       this.MinPlayers = ini.GetInt("MinPlayers");
@@ -185,12 +201,17 @@ namespace ServerBrowser
         ini.Append("MasterServer=").AppendLine(this.MasterServer);
         ini.Append("InitialGameID=").Append(this.InitialGameID).AppendLine();
         ini.Append("FilterMod=").AppendLine(this.FilterMod);
+        ini.Append("BlockedIPs=").AppendLine(this.BlockedIPs);
         ini.Append("FilterMap=").AppendLine(this.FilterMap);
+        ini.Append("ExcludeMaps=").AppendLine(this.MapsExcludeServer);
         ini.Append("TagsInclude=").AppendLine(this.TagsIncludeServer);
         ini.Append("TagsExclude=").AppendLine(this.TagsExcludeServer);
+        ini.Append("NamesInclude=").AppendLine(this.NamesIncludeServer);
+        ini.Append("NamesExclude=").AppendLine(this.NamesExcludeServer);
         ini.Append("VersionMatch=").AppendLine(this.VersionMatch);
         ini.Append("GetEmptyServers=").AppendLine(this.GetEmptyServers ? "1" : "0");
         ini.Append("GetFullServers=").AppendLine(this.GetFullServers ? "1" : "0");
+        ini.Append("GetOfficialServers=").AppendLine(this.GetOfficialServers ? "1" : "0");
         ini.Append("MasterServerQueryLimit=").Append(this.MasterServerQueryLimit).AppendLine();
       }
       ini.Append("GridFilter=").AppendLine(this.GridFilter);

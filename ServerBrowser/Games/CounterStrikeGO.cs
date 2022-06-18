@@ -17,12 +17,15 @@ namespace ServerBrowser
       // and the Valve network throttles clients to 100 requests per minute across all their servers and there are thousands of them.
       // They can be identified by the tag "valve_ds", which we use to filter them out on the server side.
 
-      // skip over user's filter and append our own
-      while (filter.Nor != null)
-        filter = filter.Nor;
+      if (!filter.IsOfficialServer)
+      {
+            // skip over user's filter and append our own
+            while (filter.Nor != null)
+            filter = filter.Nor;
 
-      filter.Nor = new IpFilter();
-      filter.Nor.Sv_Tags = "valve_ds";
+            filter.Nor = new IpFilter();
+            filter.Nor.Sv_Tags = "valve_ds";
+      }
     }
 
     public override bool SupportsPlayersQuery(ServerRow server)

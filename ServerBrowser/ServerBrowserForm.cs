@@ -145,14 +145,9 @@ namespace ServerBrowser
       extenders.Add(Game.Reflex, new Reflex());
       extenders.Add(Game.QuakeLive, new QuakeLive(Game.QuakeLive));
       extenders.Add(Game.CounterStrike_Global_Offensive, new CounterStrikeGO());
-
-      // some games include bot count also in players count. This hardcoded list can be extended through the INI
-      foreach (var game in new[] {Game.Team_Fortress_2})
-        extenders.Get(game).BotsIncludedInPlayerCount = true;
-
-      // some games include bots also in player list. This hardcoded list can be extended through the INI
-      foreach (var game in new[] { Game.Team_Fortress_2})
-        extenders.Get(game).BotsIncludedInPlayerList = true;
+      extenders.Add(Game.Left_4_Dead, new Left4Dead());
+      extenders.Add(Game.Left_4_Dead_2, new Left4Dead());
+      extenders.Add(Game.Team_Fortress_2, new TeamFortress2());
 
       // add menu items for game specific option dialogs
       foreach (var item in extenders.Select(item => item.Value).OrderBy(item => item.OptionMenuCaption))
@@ -364,10 +359,22 @@ namespace ServerBrowser
       this.SetSteamAppId(vm.InitialGameID);
       this.txtTagIncludeServer.Text = vm.TagsIncludeServer;
       this.txtTagExcludeServer.Text = vm.TagsExcludeServer;
+      this.txtNameIncludeServer.Text = vm.NamesIncludeServer;
+      this.txtNameExcludeServer.Text = vm.NamesExcludeServer;
+      this.txtMod.Enabled = vm.InitialGameID != 730;
+      this.txtMod.Visible = vm.InitialGameID != 730;
+      this.labelMod.Text = (vm.InitialGameID == 730 ? "Block IPs:" : "Mod:");
       this.txtMod.Text = vm.FilterMod;
+      this.txtBlockedIPs.Enabled = vm.InitialGameID == 730;
+      this.txtBlockedIPs.Visible = vm.InitialGameID == 730;
+      this.txtBlockedIPs.Text = vm.BlockedIPs;
       this.txtMap.Text = vm.FilterMap;
+      this.txtExcludeMaps.Text = vm.MapsExcludeServer;
       this.cbGetEmpty.Checked = vm.GetEmptyServers;
       this.cbGetFull.Checked = vm.GetFullServers;
+      // Find a better a way to detect SteamAppId for enabling this checkbox.
+      this.cbGetMMServers.Enabled = (vm.InitialGameID == 440) || (vm.InitialGameID == 500) || (vm.InitialGameID == 550) || (vm.InitialGameID == 730);
+      this.cbGetMMServers.Checked = vm.GetOfficialServers;
       this.comboQueryLimit.Text = vm.MasterServerQueryLimit.ToString();
 
       this.gvServers.ActiveFilterString = vm.GridFilter;
@@ -655,11 +662,17 @@ namespace ServerBrowser
         vm.InitialGameID = (int)this.gameIdForComboBoxIndex[this.comboGames.SelectedIndex];
 
       vm.FilterMod = this.txtMod.Text;
+      vm.BlockedIPs = this.txtBlockedIPs.Text;
       vm.FilterMap = this.txtMap.Text;
+      vm.MapsExcludeServer = this.txtExcludeMaps.Text;
       vm.TagsIncludeServer = this.txtTagIncludeServer.Text;
       vm.TagsExcludeServer = this.txtTagExcludeServer.Text;
+      vm.NamesIncludeServer = this.txtNameIncludeServer.Text;
+      vm.NamesExcludeServer = this.txtNameExcludeServer.Text;
       vm.GetEmptyServers = this.cbGetEmpty.Checked;
       vm.GetFullServers = this.cbGetFull.Checked;
+
+      vm.GetOfficialServers = this.cbGetMMServers.Checked;
       vm.MasterServerQueryLimit = Convert.ToInt32(this.comboQueryLimit.Text);
       int num;
       int.TryParse(this.comboMinPlayers.Text, out num);
@@ -817,16 +830,29 @@ namespace ServerBrowser
       this.timerReloadServers.Stop();
       IpFilter filter = new IpFilter();
       filter.App = (Game)this.viewModel.InitialGameID;
+      filter.HostnameMatch = this.viewModel.NamesIncludeServer;
+      if (this.viewModel.NamesExcludeServer != "")
+      {
+        ParseExcludedServerNames(filter, this.viewModel.NamesExcludeServer); 
+      }
       filter.IsNotEmpty = !this.viewModel.GetEmptyServers;
       filter.IsNotFull = !this.viewModel.GetFullServers;
+      filter.IsOfficialServer = this.viewModel.GetOfficialServers;
       filter.GameDirectory = this.viewModel.FilterMod;
+      if (this.viewModel.BlockedIPs != "")
+      {
+            ParseExcludedIPs(filter, this.viewModel.BlockedIPs);
+      }
       filter.Map = this.viewModel.FilterMap;
+      if ((filter.Map != null) && (this.viewModel.MapsExcludeServer != ""))
+      {
+            ParseExcludedMaps(filter, this.viewModel.MapsExcludeServer);
+      }
       filter.Sv_Tags = this.ParseTags(this.viewModel.TagsIncludeServer);
       filter.VersionMatch = this.viewModel.VersionMatch;
       if (this.viewModel.TagsExcludeServer != "")
       {
-        filter.Nor = new IpFilter();
-        filter.Nor.Sv_Tags = this.ParseTags(this.viewModel.TagsExcludeServer);
+        ParseExcludedTags(filter, this.viewModel.TagsExcludeServer);
       }
       this.CustomizeFilter(filter);
       this.RefreshGameExtensions();
@@ -951,6 +977,70 @@ namespace ServerBrowser
     private string ParseTags(string text)
     {
       return text.Replace("\\", "").Replace(' ', ',');
+    }
+    #endregion
+
+    // Parse server-side excluded tags like client-side one.
+
+    #region ParseExcludedTags()
+    private void ParseExcludedTags(IpFilter filter, string text)
+    {
+      var orParts = text.Split(';');
+
+      foreach (var orPart in orParts)
+      {
+        while (filter.Nor != null)
+         filter = filter.Nor;
+
+        filter.Nor = new IpFilter();
+        filter.Nor.Sv_Tags = this.ParseTags(orPart);
+      }
+    }
+    #endregion
+
+    #region ParseExcludedServerNames()
+    private void ParseExcludedServerNames(IpFilter filter, string text)
+    {
+      var orParts = text.Split(';');
+
+      foreach (var orPart in orParts)
+      {
+        while (filter.Nor != null)
+         filter = filter.Nor;
+
+        filter.Nor = new IpFilter();
+        filter.Nor.HostnameMatch = orPart;
+      }
+    }
+    #endregion
+
+    #region ParseExcludedMaps()
+    private void ParseExcludedMaps(IpFilter filter, string text)
+    {
+        var ExcludedMapList = text.Split(',');
+        foreach (var ExcludedMap in ExcludedMapList)
+        {
+           while (filter.Nor != null)
+            filter = filter.Nor;
+
+           filter.Nor = new IpFilter();
+           filter.Nor.Map = ExcludedMap;
+        }
+    }
+    #endregion
+
+     #region ParseExcludedIPs()
+    private void ParseExcludedIPs(IpFilter filter, string text)
+    {
+        var ExcludedIPsList = text.Split(',');
+        foreach (var ExcludedIP in ExcludedIPsList)
+        {
+           while (filter.Nor != null)
+            filter = filter.Nor;
+
+           filter.Nor = new IpFilter();
+           filter.Nor.GameAddr = ExcludedIP;
+        }
     }
     #endregion
 

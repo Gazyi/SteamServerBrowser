@@ -78,5 +78,10 @@ namespace QueryMaster
         public IpFilter Nand { get; set; }
 
         public string VersionMatch { get; set; }
+
+        /// <summary>
+        /// Custom check for official servers, conditions should be implemented in game extension
+        /// </summary>
+        public bool IsOfficialServer { get; set; }
     }
 }
