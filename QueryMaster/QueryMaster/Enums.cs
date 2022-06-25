@@ -60,6 +60,7 @@ namespace QueryMaster
         /// Condition Zero
         /// </summary>
         Condition_Zero = 80,
+        /*
         /// <summary>
         /// Half-Life Dedicated Server
         /// </summary>
@@ -77,14 +78,17 @@ namespace QueryMaster
         /// Half-Life 2
         /// </summary>
         Half_Life_2 = 220,
+        */
         /// <summary>
         /// Counter-Strike: Source
         /// </summary>
         CounterStrike_Source = 240,
+        /*
         /// <summary>
         /// Half-Life: Source
         /// </summary>
         Half_Life_Source = 280,
+        */
         /// <summary>
         /// Day of Defeat: Source
         /// </summary>
@@ -93,14 +97,17 @@ namespace QueryMaster
         /// Half-Life 2: Deathmatch
         /// </summary>
         Half_Life_2_Deathmatch = 320,
+        /*
         /// <summary>
         /// Half-Life 2: Lost Coast
         /// </summary>
         Half_Life_2_Lost_Coast = 340,
+        */
         /// <summary>
         /// Half-Life Deathmatch: Source
         /// </summary>
         Half_Life_Deathmatch_Source = 360,
+        /*
         /// <summary>
         /// Half-Life 2: Episode One
         /// </summary>
@@ -113,6 +120,7 @@ namespace QueryMaster
         /// Half-Life 2: Episode Two
         /// </summary>
         Half_Life_2_Episode_Two = 420,
+        */
         /// <summary>
         /// Team Fortress 2
         /// </summary>
@@ -125,6 +133,7 @@ namespace QueryMaster
         /// Left 4 Dead 2
         /// </summary>
         Left_4_Dead_2 = 550,
+        /*
         /// <summary>
         /// Dota 2 
         /// </summary>
@@ -133,6 +142,7 @@ namespace QueryMaster
         /// Portal 2
         /// </summary>
         Portal_2 = 620,
+        */
         /// <summary>
         /// Alien Swarm
         /// </summary>
@@ -141,10 +151,12 @@ namespace QueryMaster
         /// Counter-Strike: Global Offensive
         /// </summary>
         CounterStrike_Global_Offensive = 730,
+        /*
         /// <summary>
         /// SiN Episodes: Emergence
         /// </summary>
         SiN_Episodes_Emergence = 1300,
+        */
         /// <summary>
         /// Dark Messiah of Might and Magic
         /// </summary>
@@ -161,10 +173,12 @@ namespace QueryMaster
         /// Bloody Good Time
         /// </summary>
         Bloody_Good_Time = 2450,
+        /*
         /// <summary>
         /// Vampire The Masquerade - Bloodlines
         /// </summary>
         Vampire_The_Masquerade_Bloodlines = 2600,
+        */
         /// <summary>
         /// Garry's Mod
         /// </summary>
@@ -247,10 +261,12 @@ namespace QueryMaster
         /// Alien Swarm: Reactive Drop
         /// </summary>
         Alien_Swarm_Reactive_Drop = 563560,
+        /*
         /// <summary>
         /// Alien Swarm: Reactive Drop Dedicated Server
         /// </summary>
         Alien_Swarm_Reactive_Drop_Dedicated_Server = 582400,
+        */
         /// <summary>
         /// Dino D-Day
         /// </summary>
@@ -275,10 +291,12 @@ namespace QueryMaster
         /// No More Room in Hell
         /// </summary>
         No_More_Room_in_Hell = 224260,
+        /*
         /// <summary>
         /// No More Room in Hell Dedicated Server
         /// </summary>
         No_More_Room_in_Hell_Dedicated_Server = 317670,
+        */
         /// <summary>
         /// NEOTOKYO
         /// </summary>
@@ -323,6 +341,7 @@ namespace QueryMaster
         /// Sven Co-op
         /// </summary>
         Sven_Coop = 225840,
+        /*
         /// <summary>
         /// Sven Co-op Dedicated Server
         /// </summary>
@@ -332,6 +351,11 @@ namespace QueryMaster
         /// </summary>
         Portal_Reloaded = 1255980,
         /// <summary>
+        /// Portal:Stories
+        /// </summary>
+        Portal_Stories = 317400,
+        */
+        /// <summary>
         /// Modular Combat
         /// </summary>
         Modular_Combat = 349480,
@@ -340,13 +364,10 @@ namespace QueryMaster
         /// </summary>
         Bear_Party_Adventure = 1274450,
         /// <summary>
-        /// Portal:Stories
-        /// </summary>
-        Portal_Stories = 317400,
-        /// <summary>
         /// Cry of Fear
         /// </summary>
         Cry_of_Fear = 223710,
+        /*
         /// <summary>
         /// The Stanley Parable
         /// </summary>
@@ -363,6 +384,7 @@ namespace QueryMaster
         /// CONSORTIUM
         /// </summary>
         CONSORTIUM = 264240,
+        */
         /// <summary>
         /// Base Defense
         /// </summary>
@@ -391,10 +413,12 @@ namespace QueryMaster
         /// Military Conflict: Vietnam
         /// </summary>
         Military_Conflict_Vietnam = 1012110,
+        /*
         /// <summary>
         /// Thinking with Time Machine
         /// </summary>
         Thinking_with_Time_Machine = 286080,
+        */
         /// <summary>
         /// Classic Offensive
         /// </summary>
@@ -403,18 +427,24 @@ namespace QueryMaster
         /// Lambda Mods
         /// </summary>
         Lambda_Wars = 270370,
+        /*
         /// <summary>
         /// The Beginner's Guide
         /// </summary>
         The_Beginners_Guide = 303210,
         /// <summary>
-        /// Deathmatch Classic: Refragged
-        /// </summary>
-        Deathmatch_Classic_Refragged = 1435320,
-        /// <summary>
         /// Left 4 Dead 2 Dedicated Server
         /// </summary>
         Left_4_Dead_2_Dedicated_Server = 222860,
+        /// <summary>
+        /// Half-Life Deathmatch: Source Dedicated Server
+        /// </summary>
+        Half_Life_Deathmatch_Source_Dedicated_server = 255470,
+        */
+        /// <summary>
+        /// Deathmatch Classic: Refragged
+        /// </summary>
+        Deathmatch_Classic_Refragged = 1435320,
 
         // Other third party games that use Steam API and still have servers.
         Red_Orchestra_Ostfront_41_45 = 1200,
@@ -469,10 +499,10 @@ namespace QueryMaster
         Primal_Carnage = 215470,
         Chivalry_Medieval_Warfare = 219640,
         Grim_Dawn = 219990,
-        Chivalry_Medieval_Warfare_Dedicated_Server = 220070,
+        //Chivalry_Medieval_Warfare_Dedicated_Server = 220070,
         DayZ_Mod = 224580,
         Wreckfest = 228380,
-        Painkiller_Hell_And_Damnation_Dedicated_Server = 230030,
+        //Painkiller_Hell_And_Damnation_Dedicated_Server = 230030,
         War_for_the_Overworld = 230190,
         Deadfall_Adventures = 231330,
         Killing_Floor_2 = 232090,
@@ -495,7 +525,6 @@ namespace QueryMaster
         Seven_Days_to_Die = 251570,
         Rust = 252490,
         Tiny_Brains = 253690,
-        Half_Life_Deathmatch_Source_Dedicated_server = 255470,
         Viscera_Cleanup_Detail_Shadow_Warrior = 255520,
         Just_Cause_2_Multiplayer_Mod = 259080,
         Blockstorm = 263060,
@@ -507,14 +536,14 @@ namespace QueryMaster
         Creativerse = 280790,
         Life_is_Feudal_Your_Own = 290080,
         H_Hour_Worlds_Elite = 293220,
-        Seven_Days_to_Die_Dedicated_Server = 294420,
+        //Seven_Days_to_Die_Dedicated_Server = 294420,
         Ballistic_Overkill = 296300,
         Real_Boxing = 296770,
         Heroes_of_Might_and_Magic_III_HD_Edition = 297000,
         Miscreated = 299740,
         Road_Redemption = 300380,
         Chicken_Invaders_Four = 301300,
-        Miscreated_Dedicated_Server = 302200,
+        //Miscreated_Dedicated_Server = 302200,
         BlazeRush = 302710,
         Unturned = 304930,
         NS2_Combat = 310110,
@@ -545,7 +574,7 @@ namespace QueryMaster
         Hanako_Honor_and_Blade = 349510,
         SURVIVAL_Postapocalypse_Now = 351290,
         Chicken_Invaders_5 = 353090,
-        Wreckfest_Dedicated_Server = 361580,
+        //Wreckfest_Dedicated_Server = 361580,
         Mirage_Arcane_Warfare = 368420,
         Colony_Survival = 366090,
         The_Mean_Greens_Plastic_Warfare = 360940,
@@ -554,15 +583,15 @@ namespace QueryMaster
         Savage_Resurrection = 366440,
         Angels_Fall_First = 367270,
         Hired_Ops = 374280,
-        Zombie_Grinder_Dedicated_Server = 374980,
-        ARK_Survival_Evolved_Dedicated_Server = 376030,
+        //Zombie_Grinder_Dedicated_Server = 374980,
+        //ARK_Survival_Evolved_Dedicated_Server = 376030,
         The_Isle = 376210,
         Hide_and_Hold_Out_H2o = 377140,
         Thunder_Tier_One = 377300,
         ExoCorps = 368040,
         Project_CARS_2 = 378860,
         In_The_Black = 380110,
-        Project_Zomboid_Dedicated_Server = 380870,
+        //Project_Zomboid_Dedicated_Server = 380870,
         Empyrion_Galactic_Survival = 383120,
         The_Ship_Remasted = 383790,
         PCE_Open_Testing_Beta = 392990,
@@ -570,13 +599,13 @@ namespace QueryMaster
         Hurtworld = 393420,
         Ice_Lakes = 393430,
         Tower_Unite = 394690,
-        Out_of_Reach_Dedicated_Server = 406800,
+        //Out_of_Reach_Dedicated_Server = 406800,
         ARK_Survival_Of_The_Fittest = 407530,
         Unfortunate_Spacemen = 408900,
         Forts = 410900,
         BATTLECREW_Space_Pirates = 411480,
         The_Black_Death = 412450,
-        Ballistic_Overkill_Dedicated_Server = 416880,
+        //Ballistic_Overkill_Dedicated_Server = 416880,
         Subsistence = 418030,
         Rising_Storm_2_Vietnam = 418460,
         Lifeless = 419520,
@@ -594,21 +623,21 @@ namespace QueryMaster
         Midair = 439370,
         Conan_Exiles = 440900,
         Avorion = 445220,
-        Automobilista_Dedicated_Server = 447760,
+        //Automobilista_Dedicated_Server = 447760,
         The_Lab = 450390,
         Final_Days = 459830,
         Strike_Vector_EX = 476360,
         Citadel_Forged_With_Fire = 487120,
         BATTALION_1944 = 489940,
         Days_of_War = 454350,
-        Call_of_Duty_Black_Ops_III_Mod_Tools = 455130,
+        //Call_of_Duty_Black_Ops_III_Mod_Tools = 455130,
         Zescape = 517280,
         Dark_and_Light = 529180,
         Argo = 530700,
         Survive_the_Nights = 541300,
         Stationeers = 544550,
-        Call_of_Duty_Black_Ops_III_Unranked_Dedicated_Server = 545990,
-        The_Forest_Dedicated_Server = 556450,
+        //Call_of_Duty_Black_Ops_III_Unranked_Dedicated_Server = 545990,
+        //The_Forest_Dedicated_Server = 556450,
         Witch_It = 559650,
         Serious_Sam_Fusion_2017 = 564310,
         Fire_Pro_Wrestling_World = 564230,
@@ -621,7 +650,7 @@ namespace QueryMaster
         Golem_Gates = 575970,
         Demolish_and_Build_2018 = 577670,
         Insurgency_Sandstorm = 581320,
-        Insurgency_Sandstorm_Dedicated_Server = 581330,
+        //Insurgency_Sandstorm_Dedicated_Server = 581330,
         Capsa = 588120,
         Cobalt_WASD = 590720,
         SBox = 590830,
@@ -642,7 +671,7 @@ namespace QueryMaster
         Urban_Terror = 659280,
         The_Warhorn = 660920,
         Rival_Rampage = 663690,
-        Capsa_Dedicated_Server = 667230,
+        //Capsa_Dedicated_Server = 667230,
         Breeze_of_Death = 668910,
         Solace_Crafting = 670260,
         WarFallen = 672040,
@@ -652,7 +681,7 @@ namespace QueryMaster
         Hell_Let_Loose = 686810,
         Territory_Control_2 = 690290,
         Tactical_Operations = 690980,
-        Fog_Of_War_Free_Edition = 691020,
+        Fog_of_War_Free_Edition = 691020,
         Master_Arena = 704020,
         Will_To_Live_Online = 707010,
         GridIron = 708720,
@@ -684,7 +713,7 @@ namespace QueryMaster
         BattleRush_2 = 871990,
         SCP_Pandemic = 872670,
         Kronorite = 876780,
-        SCP_Pandemic_Dedicated_Server = 884110,
+        //SCP_Pandemic_Dedicated_Server = 884110,
         Nova_Life_Amboise = 885570,
         Insurgency_Sandstorm_Community_Test_Environment = 887860,
         StickyBots = 889400,
@@ -701,7 +730,7 @@ namespace QueryMaster
         Dysterra_RM = 950410,
         Red_Eclipse = 967460,
         Re_Poly = 970300,
-        Never_Split_the_Party_Dedicated_Server = 976380,
+        //Never_Split_the_Party_Dedicated_Server = 976380,
         Medieval_Towns = 982760,
         Nether_The_Untold_Chapter = 1010270,
         Smashpunks = 1016830,
@@ -716,10 +745,10 @@ namespace QueryMaster
         Automobilista_2 = 1066890,
         Valgrave_Immortal_Plains = 1076500,
         Day_of_Dragons = 1088090,
-        Day_of_Dragons_Dedicated_Server = 1088320,
+        //Day_of_Dragons_Dedicated_Server = 1088320,
         Karl_BOOM = 1099470,
         Onset = 1105810,
-        Unturned_Dedicated_Server = 1110390,
+        //Unturned_Dedicated_Server = 1110390,
         TrenchesWIP = 1118920,
         Fractured_Veil = 1128500,
         Escape_from_Labyrinth = 1113640,
@@ -731,7 +760,7 @@ namespace QueryMaster
         Survival_Classic = 1203370,
         Pangea_Survival = 1204700,
         Midair_Community_Edition = 1231210,
-        Stormworks_Dedicated_Server = 1247090,
+        //Stormworks_Dedicated_Server = 1247090,
         Frag_Grounds = 1269930,
         Burst_Planet = 1270970,
         Modiverse = 1281150,
@@ -743,7 +772,7 @@ namespace QueryMaster
         Last_Gang_Standing = 1309760,
         Tidewoken_Demo = 1315790,
         Warfare_1944_Test_Environment = 1316360,
-        Automobilista_2_Dedicated_Server = 1338040,
+        //Automobilista_2_Dedicated_Server = 1338040,
         Afterinfection = 1341210,
         Nemesis_Distress = 1343620,
         Calturin_and_Clone = 1359110,
@@ -755,7 +784,7 @@ namespace QueryMaster
         Animalia_Survival = 1364290,
         Blood_Oath_When_The_Sword_Rises = 1399190,
         BEACHED = 1412190,
-        Night_of_the_Dead_Dedicated_Server = 1420710,
+        //Night_of_the_Dead_Dedicated_Server = 1420710,
         The_Cartesian_Project = 1423400,
         Turbo_Sliders_Unlimited = 1478340,
         Hydrofoil_Generation = 1448820,
@@ -796,7 +825,7 @@ namespace QueryMaster
         Tag_Hop = 1625330,
         QANGA = 1648190,
         Medieval_Towns_Playtest = 1655830,
-        Crypto_Shooter_Demo = 1656270,
+        //Crypto_Shooter_Demo = 1656270,
         BATTLE_STEED_GUNMA = 1661020,
         Dead_Survival = 1665490,
         Kingdom_of_Atham_Crown_of_the_Champions = 1676380,
@@ -810,7 +839,7 @@ namespace QueryMaster
         Dysterra_Demo = 1724820,
         Astral_Shipwright = 1728180,
         Xio_Survival = 1736680,
-        Myth_of_Empires_Dedicated_Server = 1794810,
+        //Myth_of_Empires_Dedicated_Server = 1794810,
         Olympian_Knights = 1833860,
         nanos_world = 1841660,
         Farmer_Toon = 1848910,
@@ -826,7 +855,7 @@ namespace QueryMaster
         QuakeLive = 282440,
         DayZ = 221100,
         Arma_3 = 107410,
-        Arma_3_dedicated_server = 233780,
+        //Arma_3_dedicated_server = 233780,
         
     }
 
