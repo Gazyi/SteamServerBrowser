@@ -317,6 +317,12 @@ namespace QueryMaster
         /// Black Mesa
         /// </summary>
         Black_Mesa = 362890,
+        /*
+        /// <summary>
+        /// Black Mesa Dedicated Server
+        /// </summary>
+        Black_Mesa_Dedicated_Server = 346680,
+        */
         /// <summary>
         /// Codename CURE
         /// </summary>
@@ -445,6 +451,10 @@ namespace QueryMaster
         /// Deathmatch Classic: Refragged
         /// </summary>
         Deathmatch_Classic_Refragged = 1435320,
+        /// <summary>
+        /// Digital Paintball Redux
+        /// </summary>
+        Digital_Paintball_Redux = 1066610,
 
         // Other third party games that use Steam API and still have servers.
         Red_Orchestra_Ostfront_41_45 = 1200,
@@ -474,10 +484,12 @@ namespace QueryMaster
         Lead_and_Gold_Gangs_of_the_Wild_West = 42120,
         Call_of_Duty_Modern_Warfare_3 = 42690,
         Magicka = 42910,
+        Plain_Sight = 49900,
         Spec_Ops_The_Line = 50300,
         Homefront = 55100,
         Monday_Night_Combat = 63200,
         Sniper_Elite_V2 = 63380,
+        IL_2_Sturmovik_Cliffs_of_Dover = 63950,
         Take_On_Helicopters = 65730,
         Dungeon_Defenders = 65800,
         Breach = 72300,
@@ -501,6 +513,7 @@ namespace QueryMaster
         Grim_Dawn = 219990,
         //Chivalry_Medieval_Warfare_Dedicated_Server = 220070,
         DayZ_Mod = 224580,
+        Euro_Truck_Simulator_2 = 227300,
         Wreckfest = 228380,
         //Painkiller_Hell_And_Damnation_Dedicated_Server = 230030,
         War_for_the_Overworld = 230190,
@@ -568,6 +581,7 @@ namespace QueryMaster
         GRAV = 332500,
         Medieval_Engineers = 333950,
         Vox_Machinae = 334540,
+        Ukrainian_Ninja = 339000,
         rFactor = 339790,
         NASCAR_15_Victory_Edition = 345890,
         ARK_Survival_Evolved = 346110,
@@ -697,6 +711,7 @@ namespace QueryMaster
         Squad_Public_Testing = 774941,
         Team_Sonic_Racing = 785260,
         Emergency_Call_112_The_Fire_Fighting_Simulation_2 = 785770,
+        Perfect_Heist = 787040,
         DARCO_Reign_of_Elements = 789960,
         Identity = 792990,
         Warfare_1944 = 793560,
@@ -756,6 +771,7 @@ namespace QueryMaster
         Tip_of_the_Spear_Task_Force_Elite = 1148810,
         Blazing_Sails = 1158940,
         GROUND_BRANCH_CTE = 1202950,
+        Talvisota_Winter_War = 1206240,
         BadLads = 1200710,
         Survival_Classic = 1203370,
         Pangea_Survival = 1204700,
@@ -838,14 +854,17 @@ namespace QueryMaster
         Badlands = 1714350,
         Dysterra_Demo = 1724820,
         Astral_Shipwright = 1728180,
+        Shattle = 1730580,
         Xio_Survival = 1736680,
         //Myth_of_Empires_Dedicated_Server = 1794810,
+        Shattle_Playtest = 1817990,
         Olympian_Knights = 1833860,
         nanos_world = 1841660,
         Farmer_Toon = 1848910,
         Nemesis_Lockdown = 1915550,
         KAOS_SurVival = 1947280,
         Ghosts_Of_Tabor = 1957780,
+        Zero_World = 1973280,
         Astral_Shipwright_Demo = 1993250,
         Ghosts_of_Tabor_Playtest = 2003160,
         Territory_Control_2_Demo = 2052980,
