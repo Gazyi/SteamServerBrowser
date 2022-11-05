@@ -147,6 +147,7 @@
   <ItemGroup>
     <Compile Include="Games\CounterStrikeGO.cs" />
     <Compile Include="Games\Left4Dead.cs" />
+    <Compile Include="Games\PostScriptum.cs" />
     <Compile Include="Games\QuakeLiveOptionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>

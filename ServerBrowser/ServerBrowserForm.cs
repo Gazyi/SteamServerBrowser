@@ -148,6 +148,8 @@ namespace ServerBrowser
       extenders.Add(Game.Left_4_Dead, new Left4Dead());
       extenders.Add(Game.Left_4_Dead_2, new Left4Dead());
       extenders.Add(Game.Team_Fortress_2, new TeamFortress2());
+      extenders.Add(Game.Post_Scriptum, new PostScriptum());
+      extenders.Add(Game.Post_Scriptum_Public_Testing, new PostScriptum());
 
       // add menu items for game specific option dialogs
       foreach (var item in extenders.Select(item => item.Value).OrderBy(item => item.OptionMenuCaption))
