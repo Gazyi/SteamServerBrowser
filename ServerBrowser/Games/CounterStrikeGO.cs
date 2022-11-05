@@ -6,7 +6,7 @@ namespace ServerBrowser
   {
     public CounterStrikeGO()
     {
-      this.supportsRulesQuery = false;
+      this.supportsRulesQuery = true;
       this.BotsIncludedInPlayerCount = false;
       this.BotsIncludedInPlayerList = true;
     }
