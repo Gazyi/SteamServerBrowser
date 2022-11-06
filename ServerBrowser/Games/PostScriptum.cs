@@ -6,7 +6,7 @@ namespace ServerBrowser
 {
     public class PostScriptum : GameExtension
     {
-        // Post Scriptum servers don't report their player count to steam, only visible through A2S_Rules and not responding to A2S_PLAYER query...
+        // Post Scriptum servers don't report their player count to steam, only visible through A2S_RULES and not responding to A2S_PLAYER query...
         public PostScriptum()
         {
             this.supportsPlayersQuery = false;
