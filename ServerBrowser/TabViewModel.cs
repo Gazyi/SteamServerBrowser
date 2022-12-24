@@ -20,6 +20,7 @@ namespace ServerBrowser
     public string MasterServer { get; set; }
     public int InitialGameID { get; set; }
     public string FilterMod { get; set; }
+    public string FilterIP { get; set; }
     public string BlockedIPs { get; set; }
     public string FilterMap { get; set; }
     public string MapsExcludeServer { get; set; }
@@ -75,6 +76,7 @@ namespace ServerBrowser
       this.MasterServer = opt.MasterServer;
       this.InitialGameID = opt.InitialGameID;
       this.FilterMod = opt.FilterMod;
+      this.FilterIP = opt.FilterIP;
       this.BlockedIPs = opt.BlockedIPs;
       this.FilterMap = opt.FilterMap;
       this.MapsExcludeServer = opt.MapsExcludeServer;
@@ -113,6 +115,7 @@ namespace ServerBrowser
       this.MasterServer = (ignoreMasterServer ? null : ini.GetString("MasterServer")) ?? "";
       this.InitialGameID = ini.GetInt("InitialGameID");
       this.FilterMod = ini.GetString("FilterMod");
+      this.FilterIP = ini.GetString("FilterIP");
       this.BlockedIPs = ini.GetString("BlockedIPs");
       this.FilterMap = ini.GetString("FilterMap");
       this.MapsExcludeServer = ini.GetString("ExcludeMaps");
@@ -201,6 +204,7 @@ namespace ServerBrowser
         ini.Append("MasterServer=").AppendLine(this.MasterServer);
         ini.Append("InitialGameID=").Append(this.InitialGameID).AppendLine();
         ini.Append("FilterMod=").AppendLine(this.FilterMod);
+        ini.Append("FilterIP=").AppendLine(this.FilterIP);
         ini.Append("BlockedIPs=").AppendLine(this.BlockedIPs);
         ini.Append("FilterMap=").AppendLine(this.FilterMap);
         ini.Append("ExcludeMaps=").AppendLine(this.MapsExcludeServer);

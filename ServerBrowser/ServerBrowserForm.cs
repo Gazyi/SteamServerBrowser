@@ -363,12 +363,10 @@ namespace ServerBrowser
       this.txtTagExcludeServer.Text = vm.TagsExcludeServer;
       this.txtNameIncludeServer.Text = vm.NamesIncludeServer;
       this.txtNameExcludeServer.Text = vm.NamesExcludeServer;
-      this.txtMod.Enabled = vm.InitialGameID != 730;
-      this.txtMod.Visible = vm.InitialGameID != 730;
-      this.labelMod.Text = (vm.InitialGameID == 730 ? "Block IPs:" : "Mod:");
+      //this.txtMod.Enabled = vm.InitialGameID != 730;
+      //this.txtMod.Visible = vm.InitialGameID != 730;
       this.txtMod.Text = vm.FilterMod;
-      this.txtBlockedIPs.Enabled = vm.InitialGameID == 730;
-      this.txtBlockedIPs.Visible = vm.InitialGameID == 730;
+      this.txtFilterIP.Text = vm.FilterIP;
       this.txtBlockedIPs.Text = vm.BlockedIPs;
       this.txtMap.Text = vm.FilterMap;
       this.txtExcludeMaps.Text = vm.MapsExcludeServer;
@@ -664,6 +662,7 @@ namespace ServerBrowser
         vm.InitialGameID = (int)this.gameIdForComboBoxIndex[this.comboGames.SelectedIndex];
 
       vm.FilterMod = this.txtMod.Text;
+      vm.FilterIP = this.txtFilterIP.Text;
       vm.BlockedIPs = this.txtBlockedIPs.Text;
       vm.FilterMap = this.txtMap.Text;
       vm.MapsExcludeServer = this.txtExcludeMaps.Text;
@@ -841,6 +840,7 @@ namespace ServerBrowser
       filter.IsNotFull = !this.viewModel.GetFullServers;
       filter.IsOfficialServer = this.viewModel.GetOfficialServers;
       filter.GameDirectory = this.viewModel.FilterMod;
+      filter.GameAddr = this.viewModel.FilterIP;
       if (this.viewModel.BlockedIPs != "")
       {
             ParseExcludedIPs(filter, this.viewModel.BlockedIPs);
@@ -2656,6 +2656,6 @@ namespace ServerBrowser
     {
       this.AddNewTab("New Favorites", TabViewModel.SourceType.Favorites);
     }
-    #endregion
-  }
+        #endregion
+    }
 }
