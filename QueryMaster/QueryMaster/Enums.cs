@@ -459,6 +459,10 @@ namespace QueryMaster
         /// JBMod
         /// </summary>
         JBMod = 2158860,
+        /// <summary>
+        /// Entropy Zero 2 (Modded Co-op)
+        /// </summary>
+        //Entropy_Zero_2 = 1583720,
 
         // Other third party games that use Steam API and still have servers.
         Red_Orchestra_Ostfront_41_45 = 1200,
@@ -553,6 +557,7 @@ namespace QueryMaster
         Zombie_Grinder = 263920,
         Viscera_Cleanup_Detail_Santas_Rampage = 265210,
         XCOM_2 = 268500,
+        American_Truck_Simulator = 270880,
         Dungeon_Lords = 271760,
         Depth = 274940,
         Creativerse = 280790,
@@ -627,6 +632,7 @@ namespace QueryMaster
         Squad = 393380,
         Hurtworld = 393420,
         Ice_Lakes = 393430,
+        GearStorm = 393800,
         Tower_Unite = 394690,
         //Out_of_Reach_Dedicated_Server = 406800,
         ARK_Survival_Of_The_Fittest = 407530,
@@ -734,6 +740,7 @@ namespace QueryMaster
         Operation_Harsh_Doorstop = 736590,
         Villages = 749820,
         Egress = 750800,
+        Fractured_Lands = 751240,
         IL2_Sturmovik_Cliffs_of_Dover_Blitz = 754530,
         Fear_the_Night = 764920,
         Squad_Public_Testing = 774941,
@@ -903,7 +910,9 @@ namespace QueryMaster
         nanos_world = 1841660,
         Obscurity_Unknown_Threat_Playtest = 1843870,
         Farmer_Toon = 1848910,
+        //Cardfight_Vanguard_Dear_Days = 1881420,
         Nemesis_Lockdown = 1915550,
+        I_D_F_K = 1936430,
         KAOS_SurVival = 1947280,
         Ghosts_Of_Tabor = 1957780,
         Zero_World = 1973280,

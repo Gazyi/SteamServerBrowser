@@ -10,14 +10,14 @@ namespace QueryMaster
        private static readonly Dictionary<string, ushort> GoldSourceGames = new Dictionary<string, ushort>()
        {
             {"Counter-Strike",10},
-            { "Team Fortress Classic",20},
-            { "Day of Defeat",30},
-            { "Deathmatch Classic",40},
-            { "Opposing Force",50},
+            {"Team Fortress Classic",20},
+            {"Day of Defeat",30},
+            {"Deathmatch Classic",40},
+            {"Opposing Force",50},
             {"Ricochet",60},
-            { "Half-Life",70},
-            { "Condition Zero",80},
-            { "Counter-Strike 1.6 dedicated server",90},
+            {"Half-Life",70},
+            {"Condition Zero",80},
+            {"Counter-Strike 1.6 dedicated server",90},
             {"Condition Zero Deleted Scenes",100},
             {"Half-Life: Blue Shift",130},
        };

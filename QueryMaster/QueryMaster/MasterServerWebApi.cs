@@ -76,7 +76,8 @@ namespace QueryMaster
             var sb = new StringBuilder(xml);
             for (int i = 0, c = xml.Length; i < c; i++)
             {
-              if (sb[i] < 32 && !char.IsWhiteSpace(sb[i]))
+              if (char.IsControl(sb[i]))
+              //if (sb[i] < 32 && !char.IsWhiteSpace(sb[i]) && char.IsControl(sb[i]))
                 //{
                 //  sb.Insert(i+1, "#" + ((int)sb[i]).ToString() + ";");
                 //  sb[i] = '&';

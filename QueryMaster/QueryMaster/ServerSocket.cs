@@ -6,7 +6,8 @@ namespace QueryMaster
 {
   internal class ServerSocket : IDisposable
   {
-    internal static readonly int UdpBufferSize = 1400;
+    // Temporary upped buffer size since CS:GO A2S_RULES query uses fragmented UDP packets instead of multiple non-fragmented packets.
+    internal static readonly int UdpBufferSize = 8192; // SourceMod limits MTU to 5000, but I've seen examples with ~7500 bytes packet.
     internal static readonly int TcpBufferSize = 4110;
     internal IPEndPoint Address;
     protected internal int BufferSize;
