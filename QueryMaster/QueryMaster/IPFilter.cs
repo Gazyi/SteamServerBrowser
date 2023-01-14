@@ -43,7 +43,7 @@ namespace QueryMaster
         /// </summary>
         public bool IsNotFull { get; set; }
         /// <summary>
-        /// Servers that are spectator proxies 
+        /// Servers that have spectator proxies 
         /// </summary>
         public bool IsProxy { get; set; }
         /// <summary>

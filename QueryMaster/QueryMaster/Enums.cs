@@ -242,6 +242,10 @@ namespace QueryMaster
         /// </summary>
         Jabroni_Brawl_Episode_3 = 869480,
         /// <summary>
+        /// Jabroni Brawl: Episode 3 - Beta Playtest
+        /// </summary>
+        Jabroni_Brawl_Episode_3_Beta_Playtest = 1617130,
+        /// <summary>
         /// Fortress Forever
         /// </summary>
         Fortress_Forever = 253530,
@@ -466,6 +470,7 @@ namespace QueryMaster
 
         // Other third party games that use Steam API and still have servers.
         Red_Orchestra_Ostfront_41_45 = 1200,
+        Red_Orchestra_Ostfront_Beta = 1210,
         Mare_Nostrum = 1230,
         Killing_Floor = 1250,
         Darkest_Hour_Europe_44_45 = 1280,
@@ -476,6 +481,7 @@ namespace QueryMaster
         Total_War_EMPIRE = 10500,
         Aliens_vs_Predator = 10680,
         Americas_Army_3 = 13140,
+        Unreal_Development_Kit = 13260,
         GROUND_BRANCH = 16900,
         Shattered_Horizon = 18110,
         FEAR_3 = 21100,
@@ -574,6 +580,7 @@ namespace QueryMaster
         //Miscreated_Dedicated_Server = 302200,
         BlazeRush = 302710,
         Unturned = 304930,
+        Minigame_Game = 305900,
         NS2_Combat = 310110,
         Sky_Nations = 310760,
         Call_of_Duty_Black_Ops_III = 311210,
@@ -830,6 +837,7 @@ namespace QueryMaster
         Flea_Madness_Demo = 1326090,
         //Automobilista_2_Dedicated_Server = 1338040,
         Afterinfection = 1341210,
+        Survival_Lost_Way = 1343520,
         Nemesis_Distress = 1343620,
         Calturin_and_Clone = 1359110,
         Isles_of_Yore = 1360850,
@@ -875,6 +883,7 @@ namespace QueryMaster
         Predator_Hunting_Grounds = 1556200,
         Operation_Harsh_Doorstop_Playtest = 1566160,
         Dysterra_Playtest = 1562450,
+        Goose_Goose_Duck = 1568590,
         Flea_Madness_Playtest = 1574380,
         Chunkers = 1574420,
         Kaboom = 1574670,
@@ -882,6 +891,7 @@ namespace QueryMaster
         Snow_War = 1585100,
         V_Rising = 1604030,
         Drakes_Odds_Survive = 1607930,
+        SmallZ = 1612520,
         PROMOD_Playtest = 1619270,
         DeadPoly = 1621070,
         Survivals_unknown = 1624640,
@@ -892,6 +902,7 @@ namespace QueryMaster
         BATTLE_STEED_GUNMA = 1661020,
         Dead_Survival = 1665490,
         Kingdom_of_Atham_Crown_of_the_Champions = 1676380,
+        Joint_War = 1681730,
         Powerjackers_VR_Superhero_Battle_Royale = 1686070,
         World_Titans_War = 1691480,
         CROWZ = 1692070,
@@ -906,10 +917,12 @@ namespace QueryMaster
         Dead_District = 1772910,
         //Myth_of_Empires_Dedicated_Server = 1794810,
         Shattle_Playtest = 1817990,
+        Minigame_Madness_Demo = 1827800,
         Olympian_Knights = 1833860,
         nanos_world = 1841660,
         Obscurity_Unknown_Threat_Playtest = 1843870,
         Farmer_Toon = 1848910,
+        Project_Speed_2 = 1863910,
         //Cardfight_Vanguard_Dear_Days = 1881420,
         Nemesis_Lockdown = 1915550,
         I_D_F_K = 1936430,
@@ -921,7 +934,13 @@ namespace QueryMaster
         Ghosts_of_Tabor_Playtest = 2003160,
         Territory_Control_2_Demo = 2052980,
         VEIN_Demo = 2082470,
+        LAZ3RZ = 2107280,
+        LAZ3RZ_Playtest = 2108350,
         Bravery_and_Greed_Demo = 2127170,
+        Wrangel_Island = 2122570,
+        Wrangel_Island_Playtest = 2123060,
+        Degen_Royale = 2156070,
+        Degen_Royale_Playtest = 2193610,
 
         Toxikk = 324810,
         Reflex = 328070,

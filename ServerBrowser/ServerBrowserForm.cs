@@ -150,6 +150,19 @@ namespace ServerBrowser
       extenders.Add(Game.Team_Fortress_2, new TeamFortress2());
       extenders.Add(Game.Post_Scriptum, new PostScriptum());
       extenders.Add(Game.Post_Scriptum_Public_Testing, new PostScriptum());
+      // GoldSource HLTV filter extenders.
+      extenders.Add(Game.CounterStrike, new GoldSourceGame());
+      extenders.Add(Game.Team_Fortress_Classic, new GoldSourceGame());
+      extenders.Add(Game.Day_Of_Defeat, new GoldSourceGame());
+      extenders.Add(Game.Deathmatch_Classic, new GoldSourceGame());
+      extenders.Add(Game.Opposing_Force, new GoldSourceGame());
+      extenders.Add(Game.Ricochet, new GoldSourceGame());
+      extenders.Add(Game.Half_Life, new GoldSourceGame());
+      extenders.Add(Game.Condition_Zero, new GoldSourceGame());
+      extenders.Add(Game.Sven_Coop, new GoldSourceGame());
+      extenders.Add(Game.Cry_of_Fear, new GoldSourceGame());
+      extenders.Add(Game.Digital_Paintball_Redux, new GoldSourceGame());
+      // End of GoldSource HLTV filter extenders.
 
       // add menu items for game specific option dialogs
       foreach (var item in extenders.Select(item => item.Value).OrderBy(item => item.OptionMenuCaption))
@@ -363,8 +376,6 @@ namespace ServerBrowser
       this.txtTagExcludeServer.Text = vm.TagsExcludeServer;
       this.txtNameIncludeServer.Text = vm.NamesIncludeServer;
       this.txtNameExcludeServer.Text = vm.NamesExcludeServer;
-      //this.txtMod.Enabled = vm.InitialGameID != 730;
-      //this.txtMod.Visible = vm.InitialGameID != 730;
       this.txtMod.Text = vm.FilterMod;
       this.txtFilterIP.Text = vm.FilterIP;
       this.txtBlockedIPs.Text = vm.BlockedIPs;
