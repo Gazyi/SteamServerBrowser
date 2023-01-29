@@ -301,9 +301,7 @@ namespace ServerBrowser
       {
         if (request.IsCancelled)
           return;
-        //using (Server server = ServerQuery.GetServerInstance(EngineType.Source, row.EndPoint, false, request.Timeout, request.Timeout))
-        // !TODO: FIX non-WebAPI request not creating rows for servers!
-        using (Server server = ServerQuery.GetServerInstance((Game)(row.ServerInfo.Extra?.GameId ?? row.ServerInfo.Id), row.EndPoint, row.ServerInfo.IsObsolete, request.Timeout, request.Timeout))
+        using (Server server = ServerQuery.GetServerInstance(request.AppId, row.EndPoint, false, request.Timeout, request.Timeout))
         {
           row.Retries = 0;
           server.SendFirstPacketTwice = this.sendFirstUdpPacketTwice;
