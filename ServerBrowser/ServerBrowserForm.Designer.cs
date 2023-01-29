@@ -2175,7 +2175,7 @@ namespace ServerBrowser
             this.txtTagExcludeServer.Properties.Appearance.Options.UseFont = true;
             this.txtTagExcludeServer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.txtTagExcludeServer.Properties.NullValuePrompt = "space/comma=AND; semicolon=OR";
+            this.txtTagExcludeServer.Properties.NullValuePrompt = "comma=AND; semicolon=OR";
             this.txtTagExcludeServer.Size = new System.Drawing.Size(224, 22);
             this.txtTagExcludeServer.TabIndex = 11;
             this.txtTagExcludeServer.ToolTip = "Tags are filtered by the Master Server to shorten the list of game servers.";
@@ -2201,7 +2201,7 @@ namespace ServerBrowser
             this.txtTagIncludeServer.Properties.Appearance.Options.UseFont = true;
             this.txtTagIncludeServer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
-            this.txtTagIncludeServer.Properties.NullValuePrompt = "space/comma=AND";
+            this.txtTagIncludeServer.Properties.NullValuePrompt = "comma=AND";
             this.txtTagIncludeServer.Size = new System.Drawing.Size(224, 22);
             this.txtTagIncludeServer.TabIndex = 9;
             this.txtTagIncludeServer.ToolTip = "Tags are filtered by the Master Server to shorten the list of game servers.";

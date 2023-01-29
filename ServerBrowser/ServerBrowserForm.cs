@@ -36,7 +36,7 @@ namespace ServerBrowser
     private const string SteamWebApiText = "<Steam Web API>";
     private const string CustomDetailColumnPrefix = "ServerInfo.";
     private const string CustomRuleColumnPrefix = "custRule.";
-    private static readonly Game[] DefaultGames = {Game.QuakeLive, Game.Reflex, Game.Toxikk, Game.CounterStrike_Global_Offensive, Game.Team_Fortress_2};
+    private static readonly Game[] DefaultGames = {Game.QuakeLive, Game.Reflex_Arena, Game.Toxikk, Game.CounterStrike_Global_Offensive, Game.Team_Fortress_2};
     internal static Color LinkControlColor;
 
     private readonly GameExtensionPool extenders = new GameExtensionPool();
@@ -142,7 +142,7 @@ namespace ServerBrowser
     {
       extenders.Steamworks = this.steam;
       extenders.Add(Game.Toxikk, new Toxikk());
-      extenders.Add(Game.Reflex, new Reflex());
+      extenders.Add(Game.Reflex_Arena, new Reflex());
       extenders.Add(Game.QuakeLive, new QuakeLive(Game.QuakeLive));
       extenders.Add(Game.CounterStrike_Global_Offensive, new CounterStrikeGO());
       extenders.Add(Game.Left_4_Dead, new Left4Dead());
@@ -991,7 +991,8 @@ namespace ServerBrowser
     #region ParseTags()
     private string ParseTags(string text)
     {
-      return text.Replace("\\", "").Replace(' ', ',');
+      //return text.Replace("\\", "").Replace(' ', ',');
+      return text.Replace("\\", "");
     }
     #endregion
 

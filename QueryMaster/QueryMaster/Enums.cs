@@ -943,7 +943,7 @@ namespace QueryMaster
         Degen_Royale_Playtest = 2193610,
 
         Toxikk = 324810,
-        Reflex = 328070,
+        Reflex_Arena = 328070,
         QuakeLive = 282440,
         DayZ = 221100,
         Arma_3 = 107410,
