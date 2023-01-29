@@ -220,7 +220,8 @@ namespace QueryMaster
       server.Name = parser.ReadString();
       server.Map = parser.ReadString();
       server.Directory = parser.ReadString();
-      server.Id = Util.GetGameId(parser.ReadString());
+      server.Description = parser.ReadString();
+      server.Id = Util.GetGameId(server.Directory);
       server.Players = parser.ReadByte();
       server.MaxPlayers = parser.ReadByte();
       server.Protocol = parser.ReadByte();
@@ -228,9 +229,9 @@ namespace QueryMaster
       {
         switch ((char) parser.ReadByte())
         {
-          case 'L': return "non-dedicated server";
-          case 'D': return "dedicated";
-          case 'P': return "HLTV server";
+          case 'l': return "Listen";
+          case 'd': return "Dedicated";
+          case 'p': return "HLTV server";
         }
         return "";
       }))();
@@ -238,8 +239,8 @@ namespace QueryMaster
       {
         switch ((char) parser.ReadByte())
         {
-          case 'L': return "Linux";
-          case 'W': return "Windows";
+          case 'l': return "Linux";
+          case 'w': return "Windows";
         }
         return "";
       }))();

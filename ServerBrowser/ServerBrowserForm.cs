@@ -285,7 +285,7 @@ namespace ServerBrowser
     #region LoadViewModelsFromIniFile()
     private void LoadViewModelsFromIniFile(IniFile ini)
     {
-      bool hasFavTab = false;
+      bool hasFavTab = true;
       int i = 0;
       bool ignoreMasterServer = (ini.GetSection("Options")?.GetInt("ConfigVersion") ?? 0) < 2;
       foreach (var section in ini.Sections)

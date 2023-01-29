@@ -66,7 +66,25 @@ namespace QueryMaster
 
     private byte[] ParseSinglePkt(byte[] data)
     {
-      return data.Skip(4).ToArray();
+      // GoldSource multi-protocol servers return two A2S_INFO packets.
+      // First has obsolete format, second is normal one.
+      // If second packet exists, use it instead of first one.
+      if (Type == EngineType.GoldSource)
+      {
+        if (data[4] == 0x6D)
+        {
+            byte[] recvData;
+            recvData = new byte[BufferSize];
+            recvData = ReceiveData();
+            if (recvData[4] == 0x49)
+                return recvData.Skip(4).ToArray();
+        }
+        return data.Skip(4).ToArray();
+      }
+      else
+      {
+        return data.Skip(4).ToArray();
+      }
     }
 
     private byte[] ParseMultiPkt(byte[] data)
