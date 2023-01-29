@@ -484,6 +484,7 @@ namespace ServerBrowser
       this.cbConnectOnDoubleClick.Checked = options.GetBool("ConnectOnDoubleClick", true);
       this.Size = new Size(options.GetInt("WindowWidth", 1600), options.GetInt("WindowHeight", 840));
       this.cbHideGhosts.Checked = options.GetBool("HideGhostPlayers");
+      this.geoIpClient.IpInfoToken = options.GetString("IpInfoApiKey");
 
       if (File.Exists(this.xmlLayoutPath))
       {
@@ -580,6 +581,7 @@ namespace ServerBrowser
       sb.AppendLine($"WindowWidth={this.Width}");
       sb.AppendLine($"WindowHeight={this.Height}");
       sb.AppendLine($"HideGhostPlayers={this.cbHideGhosts.Checked}");
+      sb.AppendLine($"IpInfoApiKey={this.geoIpClient.IpInfoToken}");
 
       sb.AppendLine();
       sb.AppendLine("[FavoriteServers]");
@@ -1997,8 +1999,6 @@ namespace ServerBrowser
           return;
         var row = this.viewModel.Servers[e.ListSourceRowIndex];
         var geoInfo = row.GeoInfo;
-        if (geoInfo != null && geoInfo.Iso2 == "US" && !string.IsNullOrEmpty(geoInfo.State))
-          e.DisplayText = geoInfo.State;
       }
     }
     #endregion
