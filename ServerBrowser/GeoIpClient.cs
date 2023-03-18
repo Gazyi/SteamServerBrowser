@@ -270,7 +270,7 @@ namespace ServerBrowser
     public string city;
     public string region;
     public string country;
-    public string location;
+    public string loc;
     public string org;
     public string postal;
     public string timezone;

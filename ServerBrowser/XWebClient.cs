@@ -233,6 +233,8 @@ namespace ServerBrowser
       // Some header fields like ContentType MUST NOT be set via Headers[x], but have specific properties instead.
       // Headers must be set first, because this clears out all other properties
 
+      // IpInfo requests require TLS 1.2 now.
+      ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
       var req = WebRequest.Create(url);
 
       var headers = new WebHeaderCollection();
