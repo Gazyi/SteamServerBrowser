@@ -13,9 +13,9 @@ namespace ServerBrowser
 
     public override void CustomizeServerFilter(IpFilter filter)
     {
-      // Valve's matchmaking servers don't respond to A2S_PLAYER queries, can't be joined from outside a lobby 
-      // and the Valve network throttles clients to 100 requests per minute across all their servers and there are thousands of them.
-      // They can be identified by the tag "valve_ds", which we use to filter them out on the server side.
+            // Valve's matchmaking servers don't respond to A2S_PLAYER queries, can't be joined from outside a lobby 
+            // and the Valve network throttles clients to 100 requests per minute across all their servers and there are thousands of them.
+            // They can be identified by the tag "valve_ds", which we use to filter them out on the server side.
 
       if (!filter.IsOfficialServer)
       {
@@ -25,6 +25,8 @@ namespace ServerBrowser
 
             filter.Nor = new IpFilter();
             filter.Nor.Sv_Tags = "valve_ds";
+            // UPDATE: CS2 matchmaking servers don't use tags, they need to be filtered by name (e.g. "Valve Counter-Strike 2 us_west Server (srcds1006-eat1.117.39)")
+            filter.Nor.HostnameMatch = "Valve Counter-Strike 2 * Server (srcds*";
       }
     }
 
