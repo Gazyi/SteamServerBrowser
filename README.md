@@ -4,7 +4,7 @@
  | [Wiki](https://github.com/PredatH0r/SteamServerBrowser/wiki) | [Support](https://github.com/PredatH0r/SteamServerBrowser/issues) 
 
 Browse game servers listen on Valve's master servers.
-![screenshot](https://a.pomf.cat/lsggdv.png)
+![screenshot](https://files.catbox.moe/h7qwz8.png)
 
   - works for all games that use Valve's master server infrastructure (e.g. CS:GO, TF2, ...)
   - provides additional information for selected games (QuakeLive, Reflex and Toxikk)
