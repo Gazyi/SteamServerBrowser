@@ -8,8 +8,10 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using DevExpress.Data;
@@ -32,7 +34,7 @@ namespace ServerBrowser
   public partial class ServerBrowserForm : XtraForm
   {
     private const string Version = "2.62";
-    private const string DevExpressVersion = "v20.1";
+    private const string DevExpressVersion = "v21.2";
     private const string SteamWebApiText = "<Steam Web API>";
     private const string CustomDetailColumnPrefix = "ServerInfo.";
     private const string CustomRuleColumnPrefix = "custRule.";
@@ -61,6 +63,7 @@ namespace ServerBrowser
     private const int PredefinedTabCount = 2;
     private int iniVersion;
     private string iniMasterServers;
+    private string SteamWebApiKey;
 
     #region ctor()
     public ServerBrowserForm(IniFile ini)
@@ -290,7 +293,7 @@ namespace ServerBrowser
       bool ignoreMasterServer = (ini.GetSection("Options")?.GetInt("ConfigVersion") ?? 0) < 2;
       foreach (var section in ini.Sections)
       {
-        if (System.Text.RegularExpressions.Regex.IsMatch(section.Name, "^Tab[0-9]+$"))
+        if (Regex.IsMatch(section.Name, "^Tab[0-9]+$"))
         {
           var vm = new TabViewModel();
           vm.LoadFromIni(ini, section, this.extenders, ignoreMasterServer);
@@ -368,9 +371,10 @@ namespace ServerBrowser
       }
 
       var info = vm.MasterServer;
-      if (string.IsNullOrEmpty(info))
-        info = SteamWebApiText;
-      this.comboMasterServer.Text = info;
+      if (info != SteamWebApiText && !string.IsNullOrEmpty(info) )
+        this.comboMasterServer.Text = info;
+      else
+        this.comboMasterServer.SelectedIndex = 0;
       this.SetSteamAppId(vm.InitialGameID);
       this.txtTagIncludeServer.Text = vm.TagsIncludeServer;
       this.txtTagExcludeServer.Text = vm.TagsExcludeServer;
@@ -485,6 +489,7 @@ namespace ServerBrowser
       this.Size = new Size(options.GetInt("WindowWidth", 1600), options.GetInt("WindowHeight", 840));
       this.cbHideGhosts.Checked = options.GetBool("HideGhostPlayers");
       this.geoIpClient.IpInfoToken = options.GetString("IpInfoApiKey");
+      this.SteamWebApiKey = options.GetString("SteamWebApiKey");
 
       if (File.Exists(this.xmlLayoutPath))
       {
@@ -582,6 +587,7 @@ namespace ServerBrowser
       sb.AppendLine($"WindowHeight={this.Height}");
       sb.AppendLine($"HideGhostPlayers={this.cbHideGhosts.Checked}");
       sb.AppendLine($"IpInfoApiKey={this.geoIpClient.IpInfoToken}");
+      sb.AppendLine($"SteamWebApiKey={this.SteamWebApiKey}");
 
       sb.AppendLine();
       sb.AppendLine("[FavoriteServers]");
@@ -723,7 +729,12 @@ namespace ServerBrowser
     #region CreateServerSource()
     protected virtual IServerSource CreateServerSource(string addressAndPort)
     {
-      return new MasterServerClient(Ip4Utils.ParseEndpoint(addressAndPort));
+        IPEndPoint endpoint = null;
+
+        if ( addressAndPort != SteamWebApiText )
+            endpoint = Ip4Utils.ParseEndpoint(addressAndPort);
+
+        return new MasterServerClient(endpoint, SteamWebApiKey);
     }
     #endregion
 
@@ -1807,15 +1818,9 @@ namespace ServerBrowser
         string[] parts = this.txtGameServer.Text.Split(':');
         if (parts[0].Length == 0) return;
         // get IPv4 address
-        var addr = Dns.GetHostAddresses(parts[0]);
-        int i;
-        for (i = 0; i < addr.Length; i++)
-        {
-          if (addr[i].AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-            break;
-        }
-        if (i >= addr.Length) return;
-        var endpoint = new IPEndPoint(addr[i], parts.Length > 1 ? int.Parse(parts[1]) : 27015);
+        var ipv4 = Dns.GetHostAddresses(parts[0]).FirstOrDefault(p => p.AddressFamily == AddressFamily.InterNetwork);
+        if (ipv4 == null) return;
+        var endpoint = new IPEndPoint(ipv4, parts.Length > 1 ? int.Parse(parts[1]) : 27015);
         if (endpoint.Address.ToString() == "0.0.0.0") return;
         ServerRow serverRow = null;
         foreach (var row in this.viewModel.Servers)
@@ -2252,7 +2257,7 @@ namespace ServerBrowser
       try
       {
         var text = Clipboard.GetText();
-        var regex = new System.Text.RegularExpressions.Regex(@"^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5}$");
+        var regex = new Regex(@"^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]{1,5}$");
         foreach (var line in text.Split('\n', '\r', ' ', ',', ';','|'))
         {
           var addr = line.Trim();

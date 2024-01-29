@@ -50,7 +50,12 @@ namespace QueryMaster
   /// </summary>
   public class MasterServerWebApi : MasterServer
   {
-    const string SteamWebApiKey = "B7D245299F6F990504A86FF91EC9D6BD"; // create an account and get a steam web api key at http://steamcommunity.com/dev/apikey
+    private readonly string SteamWebApiKey = ""; // create an account and get a steam web api key at http://steamcommunity.com/dev/apikey
+
+    public MasterServerWebApi(string SteamWebApiKey)
+    {
+      this.SteamWebApiKey = SteamWebApiKey;
+    }
 
     /// <summary>
     /// Gets a server list from the Steam master server.
@@ -89,20 +94,23 @@ namespace QueryMaster
             var resp = (Response) ser.Deserialize(new StringReader(xml));
 
             var endpoints = new List<Tuple<IPEndPoint,ServerInfo>>();
-            foreach (var msg in resp.Servers)
+            if (resp.Servers != null)
             {
-              try
-              {
-                int i = msg.addr.IndexOf(':');
-                if (i > 0)
+                foreach (var msg in resp.Servers)
                 {
-                  var info = ConvertToServerInfo(msg);
-                  endpoints.Add(new Tuple<IPEndPoint, ServerInfo>(info.EndPoint, info));
+                    try
+                    {
+                        int i = msg.addr.IndexOf(':');
+                        if (i > 0)
+                        {
+                          var info = ConvertToServerInfo(msg);
+                          endpoints.Add(new Tuple<IPEndPoint, ServerInfo>(info.EndPoint, info));
+                        }
+                    }
+                    catch
+                    {
+                    }
                 }
-              }
-              catch
-              {
-              }
             }
             callback(new ReadOnlyCollection<Tuple<IPEndPoint,ServerInfo>>(endpoints), null, false);
           }
